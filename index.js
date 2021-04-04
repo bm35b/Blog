@@ -5,14 +5,14 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 
-// required to access the Weather API
-const https = require("https");
 
 const homeStartingContent = "Introductory content for my blog. This is the starting page for my daily journal.";
 const aboutContent = "This page describes what the blog is all about and some information about myself.";
 const contactContent = "Brief information about how to contact me via social media.";
+const weatherContent = "Type in the city name to check the weather";
 
 const app = express();
+
 
 app.set('view engine', 'ejs');
 
@@ -35,6 +35,15 @@ app.get("/about", function(req, res){
 app.get("/contact", function(req, res){
   res.render("contact", {contactContent: contactContent});
 });
+
+app.get("/weather", function(req, res){
+  res.render("weather", {weatherContent: weatherContent});
+});
+
+app.get("/weather", function(req, res){
+  res.render("weather", {weatherContent: weatherContent});
+});
+
 
 app.get("/compose", function(req, res){
   res.render("compose");
